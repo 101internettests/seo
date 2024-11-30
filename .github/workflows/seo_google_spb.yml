@@ -1,4 +1,4 @@
-name: seo google msk
+name: seo google spb
 on:
   workflow_dispatch:
 
@@ -34,11 +34,11 @@ jobs:
         uses: actions/download-artifact@v4
 
       - name: tests
-        run: pytest tests/test_seo_google.py::test_find_competitors_and_website_rank_msk
+        run: pytest tests/test_seo_google.py::test_find_competitors_and_website_rank_spb
         continue-on-error: true
 
       - name: Upload result files as artifacts
         uses: actions/upload-artifact@v3
         with:
           name: SEO Results Google
-          path: google_msk.xlsx
+          path: google_spb.xlsx

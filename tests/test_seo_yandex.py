@@ -1,6 +1,8 @@
 from selenium.webdriver.common.by import By
 import time
-from pages.data import urlsyandex, path_yandex, url_ms, path_yandex_msk, url_spb, path_yandex_spb, url_ufa, path_yandex_ufa, url_krasnodar, path_yandex_krasnodar, url_novosibirsk,path_yandex_novosibirsk
+from pages.data_google import urlsyandex, path_yandex
+from pages.data_yandex import url_ms, path_yandex_msk, url_spb, path_yandex_spb, url_ufa, path_yandex_ufa
+from pages.data_yandex_second import url_krasnodar, path_yandex_krasnodar, url_novosibirsk,path_yandex_novosibirsk
 import pandas as pd
 
 

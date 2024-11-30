@@ -1,0 +1,43 @@
+name: seo google
+on:
+  workflow_dispatch:
+
+env:
+  HEADLESS: ${{ secrets.HEADLESS }}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+
+jobs:
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.1.1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+             pip install openpyxl
+
+      - name: Download all workflow run artifacts
+        uses: actions/download-artifact@v4
+
+      - name: tests
+        run: pytest tests/test_seo_google.py test_find_competitors_and_website_rank_spb
+        continue-on-error: true
+
+      - name: Upload result files as artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: SEO Results Google
+          path: google_msk.xlsx
